@@ -30,15 +30,16 @@ def move():
     if keys[pygame.K_d]:
         player_pos.x += 300 * dt
 
-while True:
-    # Check for a quit signal from the user.
-    if any([event.type == pygame.QUIT for event in pygame.event.get()]):
-        break
+try:
+    while True:
+        # Check for a quit signal from the user.
+        if any([event.type == pygame.QUIT for event in pygame.event.get()]):
+            break
 
-    draw()
-    move()
+        draw()
+        move()
 
-    pygame.display.flip()
-    dt = clock.tick(FPS) / 1000
-
-pygame.quit()
+        pygame.display.flip()
+        dt = clock.tick(FPS) / 1000
+finally:
+    pygame.quit()
